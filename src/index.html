@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Дома престарелых</title>
+    <script type="text/javascript" src="javascripts/data.json"></script>
+    <script type="text/javascript">
+      'use strict'
+
+      window.addEventListener('load', function () {
+        var homes = data.sort(
+          function (a, b) {
+            var keyA = parseInt(a['Лот'])
+            var keyB = parseInt(b['Лот'])
+            // Compare the 2 dates
+            if (keyA < keyB) return -1
+            if (keyA > keyB) return 1
+            return 0
+          }
+        )
+
+        var donated = JSON.parse(localStorage.getItem('donated')) || []
+        var html = []
+        html.push('<table style="width: 100%" cellpadding="8" cellspacing="8">')
+        for (var i = 0; i < homes.length; i++) {
+          var id = homes[i]['Лот'];
+          var amount = homes[i]['Стоимость'];
+          if (id % 5 == 1) {
+            html.push('<tr>')
+          }
+
+          var imgText = `<td><a href="/donate.html?id=${id}&amount=${amount}"><img src="/img/${id}.jpg" width="100%" `
+          if (donated.indexOf(id.toString()) > -1) {
+            imgText += 'style="-webkit-filter: grayscale(100%);filter: grayscale(100%)"'
+          }
+
+          imgText += '/></a></td>'
+          html.push(imgText)
+
+          if (id % 5 == 0) {
+            html.push('</tr>')
+          }
+        }
+
+        html.push('</table>')
+        var htmlText = html.join('\r\n')
+
+        document.write(htmlText)
+      })
+    </script>
+
+</head>
+<body>
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+version: '2.1'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "80:3000"
+    environment:
+      - RPC_HOST=docker.for.mac.localhost
+      - RPC_PORT=8545

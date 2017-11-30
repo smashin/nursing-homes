@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    <input type="file" name="path" id="file"/>
+    <input type="text" name="overwrite" value="true" />
+    <input type="submit" value="Sign" id="j-upload-btn">
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="js/storage.js"></script>
+
+<script type="text/javascript">
+    $(document).on('click', '#j-upload-btn', function() {
+        var file = $('#file')[0].files[0];
+        if (file) {
+            $.ajax({
+                method: 'post',
+                url: `https://stenddss.cryptopro.ru/STS/ums/user`,
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (data){
+                    console.log(data)
+                },
+                error: function(data) {
+                    console.log(data)
+                }
+        });
+        }
+        else alert('Выберите файл!')
+
+        return false;
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<html>
+<head>
+	<style>
+	body, html {
+		height: 100%;
+		padding: 0;
+		margin:0;
+		font-family: arial;
+	}
+
+	.bg { 
+		/* The image used */
+		background-image: url("img/bg.jpg");
+
+		/* Full height */
+		height: 100%; 
+
+		/* Center and scale the image nicely */
+		background-position: center;
+		background-repeat: no-repeat;
+		position: relative;
+		background-size: cover;
+	}
+
+	.wrap {
+		width: 65%;
+		height: 80%;
+		top: 10%;
+		background-color: white;
+		margin: auto auto auto auto;
+		position: relative;
+		background-position: right;
+		background-repeat: no-repeat;
+		background-image: url("img/picture_heart.png");
+		background-size: contain;
+		box-shadow: 0 0 50px rgba(0,0,0,0.9); /* ��������� ���� */
+	}
+
+	.content {
+		padding: 40px;
+		height: 100%;
+		float: left;
+	}
+
+	.logos 
+		img {
+		margin-right: 40px;
+		}
+
+	.logos {
+		height:25%;
+	}
+
+	.name {
+		font-size: 30px;
+		font-weight: bold;
+
+	}
+
+	.description {
+		margin-top: 10px;
+		color: #5C5C5C;
+	}
+
+	.amount {
+		font-size:55px;
+		color: #03499F;
+		font-weight: bold;
+		margin-top: 25px;
+	}
+
+	.blockchain {
+		font-size: 14px;
+		margin-top: 45px;
+		color: #B3B3B3;
+	}
+</style>
+	<script
+			src="https://code.jquery.com/jquery-2.2.4.min.js"
+			integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			crossorigin="anonymous"></script>
+	<script type="text/javascript" src="javascripts/web3.min.js"></script>
+	<script type="text/javascript" src="javascripts/truffle-contract.js"></script>
+
+	<script type="text/javascript">
+      const EthRpcEndpoint = 'http://78.24.223.194:8545'
+
+       App = {
+         web3Provider: null,
+         contracts: {},
+         dealIds: [],
+         address: null,
+
+         init: function () {
+           App.address = "0x6B0c56d1Ad5144b4d37fa6e27DC9afd5C2435c3B";
+
+           // Initialize web3 and set the provider to the testRPC.
+           if (typeof web3 !== 'undefined') {
+             App.web3Provider = web3.currentProvider
+             web3 = new Web3(web3.currentProvider)
+           } else {
+             // set the provider you want from Web3.providers
+             App.web3Provider = new Web3.providers.HttpProvider(EthRpcEndpoint)
+             web3 = new Web3(App.web3Provider)
+           }
+
+           if (!web3.isConnected())
+             console.log('not connected')
+           else
+             console.log('connected')
+
+           return App.initContract()
+         },
+
+         initContract: function () {
+           $.getJSON('/build/contracts/NursingHomeDonates.json', function (data) {
+             // Get the necessary contract artifact file and instantiate it with truffle-contract.
+             var artifact = data
+			 debugger;
+             App.contracts.NursingHomeDonates = TruffleContract(artifact)
+
+             // Set the provider for our contract.
+             App.contracts.NursingHomeDonates.setProvider(App.web3Provider)
+             App.contracts.NursingHomeDonates.deployed()
+               .then(App.renderContent)
+           })
+
+//           return App.bindEvents();
+         }
+      }
+
+      window.addEventListener('load', function () {
+        App.init();
+      });
+	</script>
+	<!--<script type="text/javascript" src="javascripts/donated.js" />-->
+</head>
+	<body>
+		<div class="bg">
+			<div class="wrap">
+				<div class="content">
+					<div class="logos">
+						<img src="img/logo_veb.png"/>
+						<img src="img/logo_starost.png"/>
+					</div>
+					<div class="name">
+						�������� ĸ���
+					</div>
+					<div class="description">
+						������ ������ ���� � ����� <br/>
+						������� �����
+					</div>
+					<div class="amount">100 000�</div>
+					<div class="blockchain">Blockchain transaction code: <br/>
+					#asdasdasd
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
