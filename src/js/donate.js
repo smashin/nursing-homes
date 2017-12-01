@@ -19,8 +19,6 @@ window.App = {
     },
 
     init: function () {
-
-
         // Initialize web3 and set the provider to the testRPC.
         if (typeof web3 !== 'undefined') {
             App.web3Provider = web3.currentProvider;
@@ -65,32 +63,21 @@ window.App = {
 
         $button.button('loading');
 
-        // setTimeout(function(){
-        //   var donated = JSON.parse(localStorage.getItem("donated")) || [];
-        //   donated.push(nsId);
-        //   localStorage.setItem("donated", JSON.stringify(donated));
-        //
-        //   $('#success-message').show().fadeOut(3000);
-        //   $button.button('reset');
-        //
-        //   setTimeout(function () {
-        //     location.href = 'donated.html';
-        //   }, 1000)
-        // }, 3000);
-
-
         App.contracts.NursingHomeDonates.deployed()
             .then(function (instance) {
                 inst = instance;
 
-                return inst.donate(nsId.toString(), $('#donator'), $('#amount'), {from: address});
+                return inst.donate(nsId.toString(), $('#donator').val(), parseInt($('#Amount').val()), {from: address});
             })
             .then(result => {
-                var logs = addDealResult.logs[0];
-                console.log(result)
-                // dealId = logs.args.dealId.toNumber();
-                if (dealId) {
-                    $('#success-message').show().fadeOut(3000);
+                var logs = result.logs[0];
+                var tx = result.tx;
+                if (tx) {
+                    $('#success-message').html(`Сведения успешно сохранены в блокчейн. Транзакция <small>${tx}</small>`).show().fadeOut(8000);
+                    var donated = JSON.parse(localStorage.getItem("donated")) || [];
+                    donated.push(logs.args);
+                    localStorage.setItem("donated", JSON.stringify(donated));
+                    setTimeout(function() { location.href = 'index.html'} , 8000);
                 }
                 else {
                     $('#error-message').show()
