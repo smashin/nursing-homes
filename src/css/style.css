@@ -14,3 +14,8 @@
 .b-title {
     padding-top: 18px;
 }
+
+a.glyphicon {
+    /*padding-top: 20px!important;*/
+    font-size: 26px!important;
+}
