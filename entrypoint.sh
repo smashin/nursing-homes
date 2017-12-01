@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-truffle migrate
+truffle migrate --network stage
+
 echo "$@"
 exec "$@"
