@@ -1,0 +1,3005 @@
+{
+  "contractName": "NursingHomeDonates",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "setOwner",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "donates",
+      "outputs": [
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "nursingHome",
+          "type": "string"
+        },
+        {
+          "name": "donator",
+          "type": "string"
+        },
+        {
+          "name": "contacts",
+          "type": "string"
+        },
+        {
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_donator",
+          "type": "string"
+        }
+      ],
+      "name": "donatorDonationAmount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_nursingHome",
+          "type": "string"
+        },
+        {
+          "name": "_donator",
+          "type": "string"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "name": "contacts",
+          "type": "string"
+        }
+      ],
+      "name": "donate",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "donatesCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        }
+      ],
+      "name": "nursingHomeDonationAmount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "donatesTotal",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "donator",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "nursingHome",
+          "type": "string"
+        }
+      ],
+      "name": "Donated",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610bf3806100536000396000f30060606040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806313af4035146100935780635db82085146100cc5780636c6bac77146102a557806375bfdfc5146103165780638da5cb5b1461040257806391e94ded14610457578063c1422e6914610480578063f8a735a7146104f1575b600080fd5b341561009e57600080fd5b6100ca600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061051a565b005b34156100d757600080fd5b6100ed60048080359060200190919050506105b8565b6040518086815260200180602001806020018060200185815260200184810384528881815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561018a5780601f1061015f5761010080835404028352916020019161018a565b820191906000526020600020905b81548152906001019060200180831161016d57829003601f168201915b505084810383528781815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561020d5780601f106101e25761010080835404028352916020019161020d565b820191906000526020600020905b8154815290600101906020018083116101f057829003601f168201915b50508481038252868181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102905780601f1061026557610100808354040283529160200191610290565b820191906000526020600020905b81548152906001019060200180831161027357829003601f168201915b50509850505050505050505060405180910390f35b34156102b057600080fd5b610300600480803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506105fa565b6040518082815260200191505060405180910390f35b341561032157600080fd5b610400600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001909190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610627565b005b341561040d57600080fd5b6104156108f5565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561046257600080fd5b61046a61091a565b6040518082815260200191505060405180910390f35b341561048b57600080fd5b6104db600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610927565b6040518082815260200191505060405180910390f35b34156104fc57600080fd5b610504610954565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561057557600080fd5b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6001818154811015156105c757fe5b90600052602060002090600502016000915090508060000154908060010190806002019080600301908060040154905085565b600060036000610609846109ae565b60001916600019168152602001908152602001600020549050919050565b61062f6109df565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561068a57600080fd5b6000855111151561069a57600080fd5b600084511115156106aa57600080fd5b6000831115156106b957600080fd5b60a060405190810160405280848152602001868152602001858152602001838152602001428152509050600180548060010182816106f79190610a21565b91600052602060002090600502016000839091909150600082015181600001556020820151816001019080519060200190610733929190610a53565b506040820151816002019080519060200190610750929190610a53565b50606082015181600301908051906020019061076d929190610a53565b50608082015181600401555050508260036000610789876109ae565b600019166000191681526020019081526020016000206000828254019250508190555082600260006107ba886109ae565b60001916600019168152602001908152602001600020600082825401925050819055507ffb8b7aca0c12bd5cb63f7d509f2958a45a48022f88728b5f7a59abd5c14a19bc848487604051808060200184815260200180602001838103835286818151815260200191508051906020019080838360005b8381101561084b578082015181840152602081019050610830565b50505050905090810190601f1680156108785780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b838110156108b1578082015181840152602081019050610896565b50505050905090810190601f1680156108de5780820380516001836020036101000a031916815260200191505b509550505050505060405180910390a15050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600180549050905090565b600060026000610936846109ae565b60001916600019168152602001908152602001600020549050919050565b6000806000809150600090505b6001805490508160ff1610156109a65760018160ff1681548110151561098357fe5b906000526020600020906005020160000154820191508080600101915050610961565b819250505090565b60006109b8610ad3565b8290506000815114156109d157600060010291506109d9565b602083015191505b50919050565b60a060405190810160405280600081526020016109fa610ae7565b8152602001610a07610ae7565b8152602001610a14610ae7565b8152602001600081525090565b815481835581811511610a4e57600502816005028360005260206000209182019101610a4d9190610afb565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610a9457805160ff1916838001178555610ac2565b82800160010185558215610ac2579182015b82811115610ac1578251825591602001919060010190610aa6565b5b509050610acf9190610b5a565b5090565b602060405190810160405280600081525090565b602060405190810160405280600081525090565b610b5791905b80821115610b5357600080820160009055600182016000610b229190610b7f565b600282016000610b329190610b7f565b600382016000610b429190610b7f565b600482016000905550600501610b01565b5090565b90565b610b7c91905b80821115610b78576000816000905550600101610b60565b5090565b90565b50805460018160011615610100020316600290046000825580601f10610ba55750610bc4565b601f016020900490600052602060002090810190610bc39190610b5a565b5b505600a165627a7a723058209a9c5958b1cc7d2d67f5f66b0e5e5f7978dcc7563571bc45d27af0c7cebe942e0029",
+  "deployedBytecode": "0x60606040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806313af4035146100935780635db82085146100cc5780636c6bac77146102a557806375bfdfc5146103165780638da5cb5b1461040257806391e94ded14610457578063c1422e6914610480578063f8a735a7146104f1575b600080fd5b341561009e57600080fd5b6100ca600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061051a565b005b34156100d757600080fd5b6100ed60048080359060200190919050506105b8565b6040518086815260200180602001806020018060200185815260200184810384528881815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561018a5780601f1061015f5761010080835404028352916020019161018a565b820191906000526020600020905b81548152906001019060200180831161016d57829003601f168201915b505084810383528781815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561020d5780601f106101e25761010080835404028352916020019161020d565b820191906000526020600020905b8154815290600101906020018083116101f057829003601f168201915b50508481038252868181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156102905780601f1061026557610100808354040283529160200191610290565b820191906000526020600020905b81548152906001019060200180831161027357829003601f168201915b50509850505050505050505060405180910390f35b34156102b057600080fd5b610300600480803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506105fa565b6040518082815260200191505060405180910390f35b341561032157600080fd5b610400600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001909190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610627565b005b341561040d57600080fd5b6104156108f5565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561046257600080fd5b61046a61091a565b6040518082815260200191505060405180910390f35b341561048b57600080fd5b6104db600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610927565b6040518082815260200191505060405180910390f35b34156104fc57600080fd5b610504610954565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561057557600080fd5b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6001818154811015156105c757fe5b90600052602060002090600502016000915090508060000154908060010190806002019080600301908060040154905085565b600060036000610609846109ae565b60001916600019168152602001908152602001600020549050919050565b61062f6109df565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561068a57600080fd5b6000855111151561069a57600080fd5b600084511115156106aa57600080fd5b6000831115156106b957600080fd5b60a060405190810160405280848152602001868152602001858152602001838152602001428152509050600180548060010182816106f79190610a21565b91600052602060002090600502016000839091909150600082015181600001556020820151816001019080519060200190610733929190610a53565b506040820151816002019080519060200190610750929190610a53565b50606082015181600301908051906020019061076d929190610a53565b50608082015181600401555050508260036000610789876109ae565b600019166000191681526020019081526020016000206000828254019250508190555082600260006107ba886109ae565b60001916600019168152602001908152602001600020600082825401925050819055507ffb8b7aca0c12bd5cb63f7d509f2958a45a48022f88728b5f7a59abd5c14a19bc848487604051808060200184815260200180602001838103835286818151815260200191508051906020019080838360005b8381101561084b578082015181840152602081019050610830565b50505050905090810190601f1680156108785780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b838110156108b1578082015181840152602081019050610896565b50505050905090810190601f1680156108de5780820380516001836020036101000a031916815260200191505b509550505050505060405180910390a15050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600180549050905090565b600060026000610936846109ae565b60001916600019168152602001908152602001600020549050919050565b6000806000809150600090505b6001805490508160ff1610156109a65760018160ff1681548110151561098357fe5b906000526020600020906005020160000154820191508080600101915050610961565b819250505090565b60006109b8610ad3565b8290506000815114156109d157600060010291506109d9565b602083015191505b50919050565b60a060405190810160405280600081526020016109fa610ae7565b8152602001610a07610ae7565b8152602001610a14610ae7565b8152602001600081525090565b815481835581811511610a4e57600502816005028360005260206000209182019101610a4d9190610afb565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610a9457805160ff1916838001178555610ac2565b82800160010185558215610ac2579182015b82811115610ac1578251825591602001919060010190610aa6565b5b509050610acf9190610b5a565b5090565b602060405190810160405280600081525090565b602060405190810160405280600081525090565b610b5791905b80821115610b5357600080820160009055600182016000610b229190610b7f565b600282016000610b329190610b7f565b600382016000610b429190610b7f565b600482016000905550600501610b01565b5090565b90565b610b7c91905b80821115610b78576000816000905550600101610b60565b5090565b90565b50805460018160011615610100020316600290046000825580601f10610ba55750610bc4565b601f016020900490600052602060002090810190610bc39190610b5a565b5b505600a165627a7a723058209a9c5958b1cc7d2d67f5f66b0e5e5f7978dcc7563571bc45d27af0c7cebe942e0029",
+  "sourceMap": "49:1882:0:-;;;192:10:1;184:5;;:18;;;;;;;;;;;;;;;;;;49:1882:0;;;;;;",
+  "deployedSourceMap": "49:1882:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;215:81:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;241:23:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1489:130;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;422:621;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;47:20:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1049:86:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1351:132;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1141:204;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;215:81:1;127:5;;;;;;;;;;;113:19;;:10;:19;;;105:28;;;;;;;;280:9;272:5;;:17;;;;;;;;;;;;;;;;;;215:81;:::o;241:23:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1489:130::-;1554:4;1577:8;:35;1586:25;1602:8;1586:15;:25::i;:::-;1577:35;;;;;;;;;;;;;;;;;;1570:42;;1489:130;;;:::o;422:621::-;654:5;;:::i;:::-;127::1;;;;;;;;;;;113:19;;:10;:19;;;105:28;;;;;;;;566:1:0;543:12;537:26;:30;529:39;;;;;;;;611:1;592:8;586:22;:26;578:35;;;;;;;;641:1;631:7;:11;623:20;;;;;;;;662:177;;;;;;;;;730:7;662:177;;;;696:12;662:177;;;;760:8;662:177;;;;792:8;662:177;;;;825:3;662:177;;;654:185;;850:7;:15;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;863:1;850:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;914:7;875:8;:35;884:25;900:8;884:15;:25::i;:::-;875:35;;;;;;;;;;;;;;;;;;:46;;;;;;;;;;;978:7;931:12;:43;944:29;960:12;944:15;:29::i;:::-;931:43;;;;;;;;;;;;;;;;;;:54;;;;;;;;;;;996:40;1004:8;1014:7;1023:12;996:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;422:621:0;;;;;:::o;47:20:1:-;;;;;;;;;;;;;:::o;1049:86:0:-;1091:4;1114:7;:14;;;;1107:21;;1049:86;:::o;1351:132::-;1417:4;1440:12;:36;1453:22;1469:5;1453:15;:22::i;:::-;1440:36;;;;;;;;;;;;;;;;;;1433:43;;1351:132;;;:::o;1141:204::-;1183:4;1199:11;1229:5;1213:1;1199:15;;1237:1;1229:9;;1224:91;1243:7;:14;;;;1239:1;:18;;;1224:91;;;1287:7;1295:1;1287:10;;;;;;;;;;;;;;;;;;;;;;:17;;;1277:27;;;;1258:3;;;;;;;1224:91;;;1332:6;1325:13;;1141:204;;;:::o;1625:304::-;1690:14;1716:32;;:::i;:::-;1757:7;1716:49;;1809:1;1779:19;:26;:31;1775:72;;;1833:3;1826:10;;;;;;1775:72;1909:2;1900:7;1896:3;1890:5;1880:33;;1866:57;;;;;:::o;49:1882::-;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\nimport \"./Owned.sol\";\n\ncontract NursingHomeDonates is Owned {\n    struct Donate {\n        uint amount;\n        string nursingHome;\n        string donator;\n        string contacts;\n        uint timestamp;\n    }\n\n    Donate[] public donates;\n    mapping(bytes32 => uint) nursingHomes;\n    mapping(bytes32 => uint) donators;\n\n    event Donated(string donator, uint amount, string nursingHome);\n\n    function donate(string _nursingHome, string _donator, uint _amount, string contacts) onlyOwner() {\n        require(bytes(_nursingHome).length > 0);\n        require(bytes(_donator).length > 0);\n        require(_amount > 0);\n\n        var d = Donate({\n            nursingHome: _nursingHome,\n            amount: _amount,\n            donator: _donator,\n            contacts: contacts,\n            timestamp: now\n        });\n\n        donates.push(d);\n        donators[stringToBytes32(_donator)] += _amount;\n        nursingHomes[stringToBytes32(_nursingHome)] += _amount;\n\n        Donated(_donator, _amount, _nursingHome);\n    }\n\n    function donatesCount() constant returns (uint) {\n        return donates.length;\n    }\n\n    function donatesTotal() constant returns (uint) {\n        uint result = 0;\n        for (var i = 0;i < donates.length;i++) {\n            result += donates[i].amount;\n        }\n\n        return result;\n    }\n\n    function nursingHomeDonationAmount(string _name) constant returns(uint) {\n        return nursingHomes[stringToBytes32(_name)];\n    }\n\n    function donatorDonationAmount(string _donator) constant returns(uint) {\n        return donators[stringToBytes32(_donator)];\n    }\n\n    function stringToBytes32(string memory _source) private returns (bytes32 result) {\n        bytes memory tempEmptyStringTest = bytes(_source);\n        if (tempEmptyStringTest.length == 0) {\n            return 0x0;\n        }\n\n        assembly {\n            result := mload(add(_source, 32))\n        }\n    }\n}",
+  "sourcePath": "/usr/app/contracts/NursingHomeDonates.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/usr/app/contracts/NursingHomeDonates.sol",
+      "exportedSymbols": {
+        "NursingHomeDonates": [
+          201
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 239,
+          "absolutePath": "/usr/app/contracts/Owned.sol",
+          "file": "./Owned.sol",
+          "scope": 202,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 2,
+        "name": "ImportDirective",
+        "src": "26:21:0"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            238
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            201,
+            238
+          ],
+          "name": "NursingHomeDonates",
+          "scope": 202
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Owned",
+                  "referencedDeclaration": 238,
+                  "type": "contract Owned"
+                },
+                "id": 3,
+                "name": "UserDefinedTypeName",
+                "src": "80:5:0"
+              }
+            ],
+            "id": 4,
+            "name": "InheritanceSpecifier",
+            "src": "80:5:0"
+          },
+          {
+            "attributes": {
+              "canonicalName": "NursingHomeDonates.Donate",
+              "name": "Donate",
+              "scope": 201,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "amount",
+                  "scope": 15,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 5,
+                    "name": "ElementaryTypeName",
+                    "src": "116:4:0"
+                  }
+                ],
+                "id": 6,
+                "name": "VariableDeclaration",
+                "src": "116:11:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "nursingHome",
+                  "scope": 15,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 7,
+                    "name": "ElementaryTypeName",
+                    "src": "137:6:0"
+                  }
+                ],
+                "id": 8,
+                "name": "VariableDeclaration",
+                "src": "137:18:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "donator",
+                  "scope": 15,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 9,
+                    "name": "ElementaryTypeName",
+                    "src": "165:6:0"
+                  }
+                ],
+                "id": 10,
+                "name": "VariableDeclaration",
+                "src": "165:14:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "contacts",
+                  "scope": 15,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 11,
+                    "name": "ElementaryTypeName",
+                    "src": "189:6:0"
+                  }
+                ],
+                "id": 12,
+                "name": "VariableDeclaration",
+                "src": "189:15:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "timestamp",
+                  "scope": 15,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 13,
+                    "name": "ElementaryTypeName",
+                    "src": "214:4:0"
+                  }
+                ],
+                "id": 14,
+                "name": "VariableDeclaration",
+                "src": "214:14:0"
+              }
+            ],
+            "id": 15,
+            "name": "StructDefinition",
+            "src": "92:143:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "donates",
+              "scope": 201,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct NursingHomeDonates.Donate storage ref[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct NursingHomeDonates.Donate storage ref[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Donate",
+                      "referencedDeclaration": 15,
+                      "type": "struct NursingHomeDonates.Donate storage pointer"
+                    },
+                    "id": 16,
+                    "name": "UserDefinedTypeName",
+                    "src": "241:6:0"
+                  }
+                ],
+                "id": 17,
+                "name": "ArrayTypeName",
+                "src": "241:8:0"
+              }
+            ],
+            "id": 18,
+            "name": "VariableDeclaration",
+            "src": "241:23:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "nursingHomes",
+              "scope": 201,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(bytes32 => uint256)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(bytes32 => uint256)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 19,
+                    "name": "ElementaryTypeName",
+                    "src": "278:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 20,
+                    "name": "ElementaryTypeName",
+                    "src": "289:4:0"
+                  }
+                ],
+                "id": 21,
+                "name": "Mapping",
+                "src": "270:24:0"
+              }
+            ],
+            "id": 22,
+            "name": "VariableDeclaration",
+            "src": "270:37:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "donators",
+              "scope": 201,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(bytes32 => uint256)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(bytes32 => uint256)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 23,
+                    "name": "ElementaryTypeName",
+                    "src": "321:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 24,
+                    "name": "ElementaryTypeName",
+                    "src": "332:4:0"
+                  }
+                ],
+                "id": 25,
+                "name": "Mapping",
+                "src": "313:24:0"
+              }
+            ],
+            "id": 26,
+            "name": "VariableDeclaration",
+            "src": "313:33:0"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "Donated"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "donator",
+                      "scope": 34,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 27,
+                        "name": "ElementaryTypeName",
+                        "src": "367:6:0"
+                      }
+                    ],
+                    "id": 28,
+                    "name": "VariableDeclaration",
+                    "src": "367:14:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "amount",
+                      "scope": 34,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 29,
+                        "name": "ElementaryTypeName",
+                        "src": "383:4:0"
+                      }
+                    ],
+                    "id": 30,
+                    "name": "VariableDeclaration",
+                    "src": "383:11:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "nursingHome",
+                      "scope": 34,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 31,
+                        "name": "ElementaryTypeName",
+                        "src": "396:6:0"
+                      }
+                    ],
+                    "id": 32,
+                    "name": "VariableDeclaration",
+                    "src": "396:18:0"
+                  }
+                ],
+                "id": 33,
+                "name": "ParameterList",
+                "src": "366:49:0"
+              }
+            ],
+            "id": 34,
+            "name": "EventDefinition",
+            "src": "353:63:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "name": "donate",
+              "payable": false,
+              "scope": 201,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_nursingHome",
+                      "scope": 109,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 35,
+                        "name": "ElementaryTypeName",
+                        "src": "438:6:0"
+                      }
+                    ],
+                    "id": 36,
+                    "name": "VariableDeclaration",
+                    "src": "438:19:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_donator",
+                      "scope": 109,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 37,
+                        "name": "ElementaryTypeName",
+                        "src": "459:6:0"
+                      }
+                    ],
+                    "id": 38,
+                    "name": "VariableDeclaration",
+                    "src": "459:15:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_amount",
+                      "scope": 109,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 39,
+                        "name": "ElementaryTypeName",
+                        "src": "476:4:0"
+                      }
+                    ],
+                    "id": 40,
+                    "name": "VariableDeclaration",
+                    "src": "476:12:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "contacts",
+                      "scope": 109,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 41,
+                        "name": "ElementaryTypeName",
+                        "src": "490:6:0"
+                      }
+                    ],
+                    "id": 42,
+                    "name": "VariableDeclaration",
+                    "src": "490:15:0"
+                  }
+                ],
+                "id": 43,
+                "name": "ParameterList",
+                "src": "437:69:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 46,
+                "name": "ParameterList",
+                "src": "519:0:0"
+              },
+              {
+                "attributes": {
+                  "arguments": [
+                    null
+                  ]
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 216,
+                      "type": "modifier ()",
+                      "value": "onlyOwner"
+                    },
+                    "id": 44,
+                    "name": "Identifier",
+                    "src": "507:9:0"
+                  }
+                ],
+                "id": 45,
+                "name": "ModifierInvocation",
+                "src": "507:11:0"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 253,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 47,
+                            "name": "Identifier",
+                            "src": "529:7:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": ">",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "length",
+                                  "referencedDeclaration": null,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "isStructConstructorCall": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        null
+                                      ],
+                                      "type": "bytes memory",
+                                      "type_conversion": true
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            {
+                                              "typeIdentifier": "t_string_memory_ptr",
+                                              "typeString": "string memory"
+                                            }
+                                          ],
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "type": "type(bytes storage pointer)",
+                                          "value": "bytes"
+                                        },
+                                        "id": 48,
+                                        "name": "ElementaryTypeNameExpression",
+                                        "src": "537:5:0"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 36,
+                                          "type": "string memory",
+                                          "value": "_nursingHome"
+                                        },
+                                        "id": 49,
+                                        "name": "Identifier",
+                                        "src": "543:12:0"
+                                      }
+                                    ],
+                                    "id": 50,
+                                    "name": "FunctionCall",
+                                    "src": "537:19:0"
+                                  }
+                                ],
+                                "id": 51,
+                                "name": "MemberAccess",
+                                "src": "537:26:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 0",
+                                  "value": "0"
+                                },
+                                "id": 52,
+                                "name": "Literal",
+                                "src": "566:1:0"
+                              }
+                            ],
+                            "id": 53,
+                            "name": "BinaryOperation",
+                            "src": "537:30:0"
+                          }
+                        ],
+                        "id": 54,
+                        "name": "FunctionCall",
+                        "src": "529:39:0"
+                      }
+                    ],
+                    "id": 55,
+                    "name": "ExpressionStatement",
+                    "src": "529:39:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 253,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 56,
+                            "name": "Identifier",
+                            "src": "578:7:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": ">",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "length",
+                                  "referencedDeclaration": null,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "isStructConstructorCall": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        null
+                                      ],
+                                      "type": "bytes memory",
+                                      "type_conversion": true
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            {
+                                              "typeIdentifier": "t_string_memory_ptr",
+                                              "typeString": "string memory"
+                                            }
+                                          ],
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "type": "type(bytes storage pointer)",
+                                          "value": "bytes"
+                                        },
+                                        "id": 57,
+                                        "name": "ElementaryTypeNameExpression",
+                                        "src": "586:5:0"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 38,
+                                          "type": "string memory",
+                                          "value": "_donator"
+                                        },
+                                        "id": 58,
+                                        "name": "Identifier",
+                                        "src": "592:8:0"
+                                      }
+                                    ],
+                                    "id": 59,
+                                    "name": "FunctionCall",
+                                    "src": "586:15:0"
+                                  }
+                                ],
+                                "id": 60,
+                                "name": "MemberAccess",
+                                "src": "586:22:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 0",
+                                  "value": "0"
+                                },
+                                "id": 61,
+                                "name": "Literal",
+                                "src": "611:1:0"
+                              }
+                            ],
+                            "id": 62,
+                            "name": "BinaryOperation",
+                            "src": "586:26:0"
+                          }
+                        ],
+                        "id": 63,
+                        "name": "FunctionCall",
+                        "src": "578:35:0"
+                      }
+                    ],
+                    "id": 64,
+                    "name": "ExpressionStatement",
+                    "src": "578:35:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 253,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 65,
+                            "name": "Identifier",
+                            "src": "623:7:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": ">",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 40,
+                                  "type": "uint256",
+                                  "value": "_amount"
+                                },
+                                "id": 66,
+                                "name": "Identifier",
+                                "src": "631:7:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 0",
+                                  "value": "0"
+                                },
+                                "id": 67,
+                                "name": "Literal",
+                                "src": "641:1:0"
+                              }
+                            ],
+                            "id": 68,
+                            "name": "BinaryOperation",
+                            "src": "631:11:0"
+                          }
+                        ],
+                        "id": 69,
+                        "name": "FunctionCall",
+                        "src": "623:20:0"
+                      }
+                    ],
+                    "id": 70,
+                    "name": "ExpressionStatement",
+                    "src": "623:20:0"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        71
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "d",
+                          "scope": 109,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "struct NursingHomeDonates.Donate memory",
+                          "typeName": null,
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [],
+                        "id": 71,
+                        "name": "VariableDeclaration",
+                        "src": "654:5:0"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": true,
+                          "lValueRequested": false,
+                          "names": [
+                            "nursingHome",
+                            "amount",
+                            "donator",
+                            "contacts",
+                            "timestamp"
+                          ],
+                          "type": "struct NursingHomeDonates.Donate memory",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15,
+                              "type": "type(struct NursingHomeDonates.Donate storage pointer)",
+                              "value": "Donate"
+                            },
+                            "id": 72,
+                            "name": "Identifier",
+                            "src": "662:6:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 36,
+                              "type": "string memory",
+                              "value": "_nursingHome"
+                            },
+                            "id": 73,
+                            "name": "Identifier",
+                            "src": "696:12:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 40,
+                              "type": "uint256",
+                              "value": "_amount"
+                            },
+                            "id": 74,
+                            "name": "Identifier",
+                            "src": "730:7:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 38,
+                              "type": "string memory",
+                              "value": "_donator"
+                            },
+                            "id": 75,
+                            "name": "Identifier",
+                            "src": "760:8:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 42,
+                              "type": "string memory",
+                              "value": "contacts"
+                            },
+                            "id": 76,
+                            "name": "Identifier",
+                            "src": "792:8:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 252,
+                              "type": "uint256",
+                              "value": "now"
+                            },
+                            "id": 77,
+                            "name": "Identifier",
+                            "src": "825:3:0"
+                          }
+                        ],
+                        "id": 78,
+                        "name": "FunctionCall",
+                        "src": "662:177:0"
+                      }
+                    ],
+                    "id": 79,
+                    "name": "VariableDeclarationStatement",
+                    "src": "654:185:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_Donate_$15_memory_ptr",
+                                  "typeString": "struct NursingHomeDonates.Donate memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct NursingHomeDonates.Donate storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 18,
+                                  "type": "struct NursingHomeDonates.Donate storage ref[] storage ref",
+                                  "value": "donates"
+                                },
+                                "id": 80,
+                                "name": "Identifier",
+                                "src": "850:7:0"
+                              }
+                            ],
+                            "id": 82,
+                            "name": "MemberAccess",
+                            "src": "850:12:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 71,
+                              "type": "struct NursingHomeDonates.Donate memory",
+                              "value": "d"
+                            },
+                            "id": 83,
+                            "name": "Identifier",
+                            "src": "863:1:0"
+                          }
+                        ],
+                        "id": 84,
+                        "name": "FunctionCall",
+                        "src": "850:15:0"
+                      }
+                    ],
+                    "id": 85,
+                    "name": "ExpressionStatement",
+                    "src": "850:15:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "+=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 26,
+                                  "type": "mapping(bytes32 => uint256)",
+                                  "value": "donators"
+                                },
+                                "id": 86,
+                                "name": "Identifier",
+                                "src": "875:8:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "bytes32",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_string_memory_ptr",
+                                          "typeString": "string memory"
+                                        }
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 200,
+                                      "type": "function (string memory) returns (bytes32)",
+                                      "value": "stringToBytes32"
+                                    },
+                                    "id": 87,
+                                    "name": "Identifier",
+                                    "src": "884:15:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 38,
+                                      "type": "string memory",
+                                      "value": "_donator"
+                                    },
+                                    "id": 88,
+                                    "name": "Identifier",
+                                    "src": "900:8:0"
+                                  }
+                                ],
+                                "id": 89,
+                                "name": "FunctionCall",
+                                "src": "884:25:0"
+                              }
+                            ],
+                            "id": 90,
+                            "name": "IndexAccess",
+                            "src": "875:35:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 40,
+                              "type": "uint256",
+                              "value": "_amount"
+                            },
+                            "id": 91,
+                            "name": "Identifier",
+                            "src": "914:7:0"
+                          }
+                        ],
+                        "id": 92,
+                        "name": "Assignment",
+                        "src": "875:46:0"
+                      }
+                    ],
+                    "id": 93,
+                    "name": "ExpressionStatement",
+                    "src": "875:46:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "+=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 22,
+                                  "type": "mapping(bytes32 => uint256)",
+                                  "value": "nursingHomes"
+                                },
+                                "id": 94,
+                                "name": "Identifier",
+                                "src": "931:12:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "bytes32",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_string_memory_ptr",
+                                          "typeString": "string memory"
+                                        }
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 200,
+                                      "type": "function (string memory) returns (bytes32)",
+                                      "value": "stringToBytes32"
+                                    },
+                                    "id": 95,
+                                    "name": "Identifier",
+                                    "src": "944:15:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 36,
+                                      "type": "string memory",
+                                      "value": "_nursingHome"
+                                    },
+                                    "id": 96,
+                                    "name": "Identifier",
+                                    "src": "960:12:0"
+                                  }
+                                ],
+                                "id": 97,
+                                "name": "FunctionCall",
+                                "src": "944:29:0"
+                              }
+                            ],
+                            "id": 98,
+                            "name": "IndexAccess",
+                            "src": "931:43:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 40,
+                              "type": "uint256",
+                              "value": "_amount"
+                            },
+                            "id": 99,
+                            "name": "Identifier",
+                            "src": "978:7:0"
+                          }
+                        ],
+                        "id": 100,
+                        "name": "Assignment",
+                        "src": "931:54:0"
+                      }
+                    ],
+                    "id": 101,
+                    "name": "ExpressionStatement",
+                    "src": "931:54:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 34,
+                              "type": "function (string memory,uint256,string memory)",
+                              "value": "Donated"
+                            },
+                            "id": 102,
+                            "name": "Identifier",
+                            "src": "996:7:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 38,
+                              "type": "string memory",
+                              "value": "_donator"
+                            },
+                            "id": 103,
+                            "name": "Identifier",
+                            "src": "1004:8:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 40,
+                              "type": "uint256",
+                              "value": "_amount"
+                            },
+                            "id": 104,
+                            "name": "Identifier",
+                            "src": "1014:7:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 36,
+                              "type": "string memory",
+                              "value": "_nursingHome"
+                            },
+                            "id": 105,
+                            "name": "Identifier",
+                            "src": "1023:12:0"
+                          }
+                        ],
+                        "id": 106,
+                        "name": "FunctionCall",
+                        "src": "996:40:0"
+                      }
+                    ],
+                    "id": 107,
+                    "name": "ExpressionStatement",
+                    "src": "996:40:0"
+                  }
+                ],
+                "id": 108,
+                "name": "Block",
+                "src": "519:524:0"
+              }
+            ],
+            "id": 109,
+            "name": "FunctionDefinition",
+            "src": "422:621:0"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "donatesCount",
+              "payable": false,
+              "scope": 201,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 110,
+                "name": "ParameterList",
+                "src": "1070:2:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 118,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 111,
+                        "name": "ElementaryTypeName",
+                        "src": "1091:4:0"
+                      }
+                    ],
+                    "id": 112,
+                    "name": "VariableDeclaration",
+                    "src": "1091:4:0"
+                  }
+                ],
+                "id": 113,
+                "name": "ParameterList",
+                "src": "1090:6:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 113
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "length",
+                          "referencedDeclaration": null,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 18,
+                              "type": "struct NursingHomeDonates.Donate storage ref[] storage ref",
+                              "value": "donates"
+                            },
+                            "id": 114,
+                            "name": "Identifier",
+                            "src": "1114:7:0"
+                          }
+                        ],
+                        "id": 115,
+                        "name": "MemberAccess",
+                        "src": "1114:14:0"
+                      }
+                    ],
+                    "id": 116,
+                    "name": "Return",
+                    "src": "1107:21:0"
+                  }
+                ],
+                "id": 117,
+                "name": "Block",
+                "src": "1097:38:0"
+              }
+            ],
+            "id": 118,
+            "name": "FunctionDefinition",
+            "src": "1049:86:0"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "donatesTotal",
+              "payable": false,
+              "scope": 201,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 119,
+                "name": "ParameterList",
+                "src": "1162:2:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 149,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 120,
+                        "name": "ElementaryTypeName",
+                        "src": "1183:4:0"
+                      }
+                    ],
+                    "id": 121,
+                    "name": "VariableDeclaration",
+                    "src": "1183:4:0"
+                  }
+                ],
+                "id": 122,
+                "name": "ParameterList",
+                "src": "1182:6:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        124
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "result",
+                          "scope": 149,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint",
+                              "type": "uint256"
+                            },
+                            "id": 123,
+                            "name": "ElementaryTypeName",
+                            "src": "1199:4:0"
+                          }
+                        ],
+                        "id": 124,
+                        "name": "VariableDeclaration",
+                        "src": "1199:11:0"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "30",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "number",
+                          "type": "int_const 0",
+                          "value": "0"
+                        },
+                        "id": 125,
+                        "name": "Literal",
+                        "src": "1213:1:0"
+                      }
+                    ],
+                    "id": 126,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1199:15:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "assignments": [
+                            127
+                          ]
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "constant": false,
+                              "name": "i",
+                              "scope": 149,
+                              "stateVariable": false,
+                              "storageLocation": "default",
+                              "type": "uint8",
+                              "typeName": null,
+                              "value": null,
+                              "visibility": "internal"
+                            },
+                            "children": [],
+                            "id": 127,
+                            "name": "VariableDeclaration",
+                            "src": "1229:5:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "30",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 0",
+                              "value": "0"
+                            },
+                            "id": 128,
+                            "name": "Literal",
+                            "src": "1237:1:0"
+                          }
+                        ],
+                        "id": 129,
+                        "name": "VariableDeclarationStatement",
+                        "src": "1229:9:0"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "<",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 127,
+                              "type": "uint8",
+                              "value": "i"
+                            },
+                            "id": 130,
+                            "name": "Identifier",
+                            "src": "1239:1:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "length",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 18,
+                                  "type": "struct NursingHomeDonates.Donate storage ref[] storage ref",
+                                  "value": "donates"
+                                },
+                                "id": 131,
+                                "name": "Identifier",
+                                "src": "1243:7:0"
+                              }
+                            ],
+                            "id": 132,
+                            "name": "MemberAccess",
+                            "src": "1243:14:0"
+                          }
+                        ],
+                        "id": 133,
+                        "name": "BinaryOperation",
+                        "src": "1239:18:0"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "++",
+                              "prefix": false,
+                              "type": "uint8"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 127,
+                                  "type": "uint8",
+                                  "value": "i"
+                                },
+                                "id": 134,
+                                "name": "Identifier",
+                                "src": "1258:1:0"
+                              }
+                            ],
+                            "id": 135,
+                            "name": "UnaryOperation",
+                            "src": "1258:3:0"
+                          }
+                        ],
+                        "id": 136,
+                        "name": "ExpressionStatement",
+                        "src": "1258:3:0"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "+=",
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 124,
+                                      "type": "uint256",
+                                      "value": "result"
+                                    },
+                                    "id": 137,
+                                    "name": "Identifier",
+                                    "src": "1277:6:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "amount",
+                                      "referencedDeclaration": 6,
+                                      "type": "uint256"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": true,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "type": "struct NursingHomeDonates.Donate storage ref"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 18,
+                                              "type": "struct NursingHomeDonates.Donate storage ref[] storage ref",
+                                              "value": "donates"
+                                            },
+                                            "id": 138,
+                                            "name": "Identifier",
+                                            "src": "1287:7:0"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 127,
+                                              "type": "uint8",
+                                              "value": "i"
+                                            },
+                                            "id": 139,
+                                            "name": "Identifier",
+                                            "src": "1295:1:0"
+                                          }
+                                        ],
+                                        "id": 140,
+                                        "name": "IndexAccess",
+                                        "src": "1287:10:0"
+                                      }
+                                    ],
+                                    "id": 141,
+                                    "name": "MemberAccess",
+                                    "src": "1287:17:0"
+                                  }
+                                ],
+                                "id": 142,
+                                "name": "Assignment",
+                                "src": "1277:27:0"
+                              }
+                            ],
+                            "id": 143,
+                            "name": "ExpressionStatement",
+                            "src": "1277:27:0"
+                          }
+                        ],
+                        "id": 144,
+                        "name": "Block",
+                        "src": "1263:52:0"
+                      }
+                    ],
+                    "id": 145,
+                    "name": "ForStatement",
+                    "src": "1224:91:0"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 122
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 124,
+                          "type": "uint256",
+                          "value": "result"
+                        },
+                        "id": 146,
+                        "name": "Identifier",
+                        "src": "1332:6:0"
+                      }
+                    ],
+                    "id": 147,
+                    "name": "Return",
+                    "src": "1325:13:0"
+                  }
+                ],
+                "id": 148,
+                "name": "Block",
+                "src": "1189:156:0"
+              }
+            ],
+            "id": 149,
+            "name": "FunctionDefinition",
+            "src": "1141:204:0"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "nursingHomeDonationAmount",
+              "payable": false,
+              "scope": 201,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_name",
+                      "scope": 163,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 150,
+                        "name": "ElementaryTypeName",
+                        "src": "1386:6:0"
+                      }
+                    ],
+                    "id": 151,
+                    "name": "VariableDeclaration",
+                    "src": "1386:12:0"
+                  }
+                ],
+                "id": 152,
+                "name": "ParameterList",
+                "src": "1385:14:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 163,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 153,
+                        "name": "ElementaryTypeName",
+                        "src": "1417:4:0"
+                      }
+                    ],
+                    "id": 154,
+                    "name": "VariableDeclaration",
+                    "src": "1417:4:0"
+                  }
+                ],
+                "id": 155,
+                "name": "ParameterList",
+                "src": "1416:6:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 155
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 22,
+                              "type": "mapping(bytes32 => uint256)",
+                              "value": "nursingHomes"
+                            },
+                            "id": 156,
+                            "name": "Identifier",
+                            "src": "1440:12:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bytes32",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 200,
+                                  "type": "function (string memory) returns (bytes32)",
+                                  "value": "stringToBytes32"
+                                },
+                                "id": 157,
+                                "name": "Identifier",
+                                "src": "1453:15:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 151,
+                                  "type": "string memory",
+                                  "value": "_name"
+                                },
+                                "id": 158,
+                                "name": "Identifier",
+                                "src": "1469:5:0"
+                              }
+                            ],
+                            "id": 159,
+                            "name": "FunctionCall",
+                            "src": "1453:22:0"
+                          }
+                        ],
+                        "id": 160,
+                        "name": "IndexAccess",
+                        "src": "1440:36:0"
+                      }
+                    ],
+                    "id": 161,
+                    "name": "Return",
+                    "src": "1433:43:0"
+                  }
+                ],
+                "id": 162,
+                "name": "Block",
+                "src": "1423:60:0"
+              }
+            ],
+            "id": 163,
+            "name": "FunctionDefinition",
+            "src": "1351:132:0"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "donatorDonationAmount",
+              "payable": false,
+              "scope": 201,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_donator",
+                      "scope": 177,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 164,
+                        "name": "ElementaryTypeName",
+                        "src": "1520:6:0"
+                      }
+                    ],
+                    "id": 165,
+                    "name": "VariableDeclaration",
+                    "src": "1520:15:0"
+                  }
+                ],
+                "id": 166,
+                "name": "ParameterList",
+                "src": "1519:17:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 177,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 167,
+                        "name": "ElementaryTypeName",
+                        "src": "1554:4:0"
+                      }
+                    ],
+                    "id": 168,
+                    "name": "VariableDeclaration",
+                    "src": "1554:4:0"
+                  }
+                ],
+                "id": 169,
+                "name": "ParameterList",
+                "src": "1553:6:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 169
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 26,
+                              "type": "mapping(bytes32 => uint256)",
+                              "value": "donators"
+                            },
+                            "id": 170,
+                            "name": "Identifier",
+                            "src": "1577:8:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bytes32",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 200,
+                                  "type": "function (string memory) returns (bytes32)",
+                                  "value": "stringToBytes32"
+                                },
+                                "id": 171,
+                                "name": "Identifier",
+                                "src": "1586:15:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 165,
+                                  "type": "string memory",
+                                  "value": "_donator"
+                                },
+                                "id": 172,
+                                "name": "Identifier",
+                                "src": "1602:8:0"
+                              }
+                            ],
+                            "id": 173,
+                            "name": "FunctionCall",
+                            "src": "1586:25:0"
+                          }
+                        ],
+                        "id": 174,
+                        "name": "IndexAccess",
+                        "src": "1577:35:0"
+                      }
+                    ],
+                    "id": 175,
+                    "name": "Return",
+                    "src": "1570:42:0"
+                  }
+                ],
+                "id": 176,
+                "name": "Block",
+                "src": "1560:59:0"
+              }
+            ],
+            "id": 177,
+            "name": "FunctionDefinition",
+            "src": "1489:130:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "stringToBytes32",
+              "payable": false,
+              "scope": 201,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_source",
+                      "scope": 200,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 178,
+                        "name": "ElementaryTypeName",
+                        "src": "1650:6:0"
+                      }
+                    ],
+                    "id": 179,
+                    "name": "VariableDeclaration",
+                    "src": "1650:21:0"
+                  }
+                ],
+                "id": 180,
+                "name": "ParameterList",
+                "src": "1649:23:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "result",
+                      "scope": 200,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 181,
+                        "name": "ElementaryTypeName",
+                        "src": "1690:7:0"
+                      }
+                    ],
+                    "id": 182,
+                    "name": "VariableDeclaration",
+                    "src": "1690:14:0"
+                  }
+                ],
+                "id": 183,
+                "name": "ParameterList",
+                "src": "1689:16:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        185
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "tempEmptyStringTest",
+                          "scope": 200,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "bytes memory",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes",
+                              "type": "bytes storage pointer"
+                            },
+                            "id": 184,
+                            "name": "ElementaryTypeName",
+                            "src": "1716:5:0"
+                          }
+                        ],
+                        "id": 185,
+                        "name": "VariableDeclaration",
+                        "src": "1716:32:0"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bytes memory",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "type": "type(bytes storage pointer)",
+                              "value": "bytes"
+                            },
+                            "id": 186,
+                            "name": "ElementaryTypeNameExpression",
+                            "src": "1751:5:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 179,
+                              "type": "string memory",
+                              "value": "_source"
+                            },
+                            "id": 187,
+                            "name": "Identifier",
+                            "src": "1757:7:0"
+                          }
+                        ],
+                        "id": 188,
+                        "name": "FunctionCall",
+                        "src": "1751:14:0"
+                      }
+                    ],
+                    "id": 189,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1716:49:0"
+                  },
+                  {
+                    "attributes": {
+                      "falseBody": null
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "==",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "length",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 185,
+                                  "type": "bytes memory",
+                                  "value": "tempEmptyStringTest"
+                                },
+                                "id": 190,
+                                "name": "Identifier",
+                                "src": "1779:19:0"
+                              }
+                            ],
+                            "id": 191,
+                            "name": "MemberAccess",
+                            "src": "1779:26:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "30",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 0",
+                              "value": "0"
+                            },
+                            "id": 192,
+                            "name": "Literal",
+                            "src": "1809:1:0"
+                          }
+                        ],
+                        "id": 193,
+                        "name": "BinaryOperation",
+                        "src": "1779:31:0"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "functionReturnParameters": 183
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "307830",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 0",
+                                  "value": "0x0"
+                                },
+                                "id": 194,
+                                "name": "Literal",
+                                "src": "1833:3:0"
+                              }
+                            ],
+                            "id": 195,
+                            "name": "Return",
+                            "src": "1826:10:0"
+                          }
+                        ],
+                        "id": 196,
+                        "name": "Block",
+                        "src": "1812:35:0"
+                      }
+                    ],
+                    "id": 197,
+                    "name": "IfStatement",
+                    "src": "1775:72:0"
+                  },
+                  {
+                    "attributes": {
+                      "externalReferences": [
+                        {
+                          "result": {
+                            "declaration": 182,
+                            "isOffset": false,
+                            "isSlot": false,
+                            "src": "1880:6:0",
+                            "valueSize": 1
+                          }
+                        },
+                        {
+                          "_source": {
+                            "declaration": 179,
+                            "isOffset": false,
+                            "isSlot": false,
+                            "src": "1900:7:0",
+                            "valueSize": 1
+                          }
+                        }
+                      ],
+                      "operations": "{\n    result := mload(add(_source, 32))\n}"
+                    },
+                    "children": [],
+                    "id": 198,
+                    "name": "InlineAssembly",
+                    "src": "1857:72:0"
+                  }
+                ],
+                "id": 199,
+                "name": "Block",
+                "src": "1706:223:0"
+              }
+            ],
+            "id": 200,
+            "name": "FunctionDefinition",
+            "src": "1625:304:0"
+          }
+        ],
+        "id": 201,
+        "name": "ContractDefinition",
+        "src": "49:1882:0"
+      }
+    ],
+    "id": 202,
+    "name": "SourceUnit",
+    "src": "0:1931:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {
+    "8995": {
+      "events": {},
+      "links": {},
+      "address": "0x2fbf8802125c589940d6c84b5053f2e85c14ca57"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-01T02:09:03.529Z"
+}
