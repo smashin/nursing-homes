@@ -7,6 +7,7 @@ contract NursingHomeDonates is Owned {
         uint amount;
         string nursingHome;
         string donator;
+        string contacts;
         uint timestamp;
     }
 
@@ -16,7 +17,7 @@ contract NursingHomeDonates is Owned {
 
     event Donated(string donator, uint amount, string nursingHome);
 
-    function donate(string _nursingHome, string _donator, uint _amount) onlyOwner() {
+    function donate(string _nursingHome, string _donator, uint _amount, string contacts) onlyOwner() {
         require(bytes(_nursingHome).length > 0);
         require(bytes(_donator).length > 0);
         require(_amount > 0);
@@ -25,6 +26,7 @@ contract NursingHomeDonates is Owned {
             nursingHome: _nursingHome,
             amount: _amount,
             donator: _donator,
+            contacts: contacts,
             timestamp: now
         });
 
