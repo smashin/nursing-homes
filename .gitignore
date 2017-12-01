@@ -42,5 +42,3 @@ node_modules/
 
 # Cursive Clojure plugin
 .idea/replstate.xml
-
-build
