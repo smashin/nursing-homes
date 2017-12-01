@@ -65,9 +65,13 @@ window.App = {
 
         App.contracts.NursingHomeDonates.deployed()
             .then(function (instance) {
-                inst = instance;
+                inst = instance;console.log($('#contacts').val())
 
-                return inst.donate(nsId.toString(), $('#donator').val(), parseInt($('#Amount').val(), $('#contacts').val()), {from: address});
+                return inst.donate(
+                    nsId.toString(),
+                    $('#donator').val(),
+                    parseInt($('#Amount').val()),
+                    $('#contacts').val(), {from: address});
             })
             .then(result => {
                 var logs = result.logs[0];
