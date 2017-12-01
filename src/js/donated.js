@@ -34,8 +34,6 @@ window.App = {
             App.contracts.NursingHomeDonates.setProvider(App.web3Provider);
             App.contracts.NursingHomeDonates.deployed()
                 .then(App.renderContent);
-
-            App.bindEvents();
         })
     },
 
@@ -46,7 +44,6 @@ window.App = {
         App.contracts.NursingHomeDonates
             .deployed()
             .then(function (instance) {
-                var dealsInstance = instance;
                 var event = instance.Donated({});
                 // watch for changes
                 event.watch(function (error, result) {
