@@ -85,7 +85,7 @@ window.App = {
         for (var i = 0; i < homes.length; i++) {
             var id = homes[i]['Лот'];
             var amount = homes[i]['Стоимость'];
-            if (id % 5 == 1) {
+            if (id % 4 == 1) {
                 html.push('<tr>')
             }
 
@@ -98,7 +98,7 @@ window.App = {
             imgText += '/></a></td>'
             html.push(imgText)
 
-            if (id % 5 == 0) {
+            if (id % 4 == 0) {
                 html.push('</tr>')
             }
         }

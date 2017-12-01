@@ -8,5 +8,9 @@
 }
 
 .navbar-header {
-    /*min-height:65px !important*/
+    min-height:65px !important
+}
+
+.b-title {
+    padding-top: 18px;
 }

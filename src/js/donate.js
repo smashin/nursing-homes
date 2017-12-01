@@ -81,7 +81,7 @@ window.App = {
                     var donated = JSON.parse(localStorage.getItem("donated")) || [];
                     donated.push(logs.args);
                     localStorage.setItem("donated", JSON.stringify(donated));
-                    setTimeout(function() { location.href = 'index.html'} , 8000);
+                    setTimeout(function() { location.href = 'index.html'} , 6000);
                 }
                 else {
                     $('#error-message').show()

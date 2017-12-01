@@ -27,7 +27,13 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <h3 class="navbar-text text-center"><a href="index.html">Пожертвования домам престарелых</a></h3>
+                <!--<div class="navbar-brand">-->
+                    <!--<img src="img/logo_veb.png" height="32px">-->
+                <!--</div>-->
+                <div class="navbar-brand">
+                    <a href="index.html"><img src="img/logo_starost.png" height="32px" /></a>
+                </div>
+                <h3 class="navbar-text text-center b-title"><a href="inde</html">Пожертвования домам престарелых</a></h3>
             </div>
         </div>
     </nav>
@@ -44,19 +50,19 @@
                         </div>
                         <div class="form-group">
                             <label for="donator">Меценат</label>
-                            <input type="text" class="form-control input-lg" id="donator" name="donator" required
+                            <input type="text" class="form-control input-lg" id="donator" name="donator" maxlength="100" required
                                    placeholder="Укажите ваше имя">
                         </div>
                         <div class="form-group">
                             <label for="contacts">Контакты</label>
-                            <input type="text" class="form-control input-lg" id="contacts" name="contacts" required
+                            <input type="text" class="form-control input-lg" id="contacts" name="contacts" maxlength="100" required
                                    placeholder="Укажите контакты для связи с вами">
                         </div>
                         <div class="form-group">
                             <label for="Amount">Сумма</label>
                             <div class="input-group">
                                 <div class="input-group-addon">&#8381;</div>
-                                <input type="number" class="form-control input-lg" id="Amount" name="Amount" required
+                                <input type="number" class="form-control input-lg" id="Amount" name="Amount" maxlength="10" required
                                        placeholder="100000">
                                 <div class="input-group-addon">.00</div>
                             </div>
