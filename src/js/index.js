@@ -79,7 +79,7 @@ window.App = {
             }
         )
 
-        console.log(donated)
+
         var html = []
         html.push('<table style="width: 100%" cellpadding="8" cellspacing="8">')
         for (var i = 0; i < homes.length; i++) {
@@ -91,7 +91,8 @@ window.App = {
 
             var imgText = `<td><a href="/donate.html?id=${id}&amount=${amount}"><img src="/img/${id}.jpg" width="100%" `
             if (App.containsInDonated(id)) {
-                imgText += 'style="-webkit-filter: grayscale(100%);filter: grayscale(100%)"'
+                imgText += 'style="-webkit-filter: grayscale(100%);filter: grayscale(100%)"';
+                // imgText += 'style="background: White;text-align: left;font: 18px bold;width:180px;height:44px!important;margin: 0;position:relative;left:37%;z-index:999;top:-110px;'
             }
 
             imgText += '/></a></td>'
