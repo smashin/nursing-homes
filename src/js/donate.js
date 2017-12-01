@@ -67,7 +67,7 @@ window.App = {
             .then(function (instance) {
                 inst = instance;
 
-                return inst.donate(nsId.toString(), $('#donator').val(), parseInt($('#Amount').val()), {from: address});
+                return inst.donate(nsId.toString(), $('#donator').val(), parseInt($('#Amount').val(), $('#contacts').val()), {from: address});
             })
             .then(result => {
                 var logs = result.logs[0];
