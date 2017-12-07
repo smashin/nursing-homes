@@ -1,110 +1,35 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Новое пожертвование</title>
-
-    <style>
-        body, html {
-            height: 100%;
-            padding: 0;
-            margin: 0;
-            font-family: "Arial";
-        }
-
-        .bg {
-            /* The image used */
-            background-image: url("img/bg.jpg");
-
-            /* Full height */
-            height: 100%;
-
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            background-size: cover;
-        }
-
-        .wrap {
-            width: 72%;
-            height: 70%;
-            top: 10%;
-            background-color: white;
-            margin: auto auto auto auto;
-            position: relative;
-            background-position: right;
-            background-repeat: no-repeat;
-            background-image: url("img/picture_heart.png");
-            background-size: contain;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9); /* ��������� ���� */
-        }
-
-        .content {
-            padding: 50px;
-            height: 100%;
-            float: left;
-        }
-
-        .logos
-        img {
-            margin-right: 40px;
-        }
-
-        .logos {
-            height: 25%;
-        }
-
-        .name {
-            font-size: 40px;
-            font-weight: bold;
-            width: 590px;
-        }
-
-        .description {
-            margin-top: 16px;
-            font-size: 22px;
-            color: #5C5C5C;
-        }
-
-        .amount {
-            font-size: 80px;
-            color: #03499F;
-            font-weight: bold;
-            margin-top: 25px;
-        }
-
-        .blockchain {
-            font-size: 16px;
-            margin-top: 65px;
-            color: #B3B3B3;
-        }
-    </style>
+    <link rel="stylesheet" href="css/donated.css">
     <script
             src="https://code.jquery.com/jquery-2.2.4.min.js"
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
             crossorigin="anonymous"></script>
 </head>
-<body>
-<div class="bg">
-    <div class="wrap">
-        <div class="content">
-            <div class="logos">
-                <img src="img/logo_veb.png"/>
-                <img src="img/logo_starost.png"/>
+    <body>
+        <div class="bg">
+            <div class="wrap">
+                <div class="content">
+                    <div class="logos">
+                        <img src="img/logo_veb.png"/>
+                        <img src="img/logo_starost.png"/>
+                    </div>
+                    <div class="name">
+                    </div>
+                    <div class="description">
+                        Сделал доброе дело<br/>и пожертвовал пожилым людям
+                    </div>
+                    <div class="amount"></div>
+                    <div class="blockchain">Blockchain transaction code<p id="tx"></p></div>
+                </div>
             </div>
-            <div class="name">
-            </div>
-            <div class="description">
-                Сделал доброе дело<br/>и пожертвовал пожилым людям
-            </div>
-            <div class="amount"></div>
-            <div class="blockchain">Blockchain transaction code<p id="tx"></p></div>
         </div>
-    </div>
-</div>
-</div>
+        </div>
 
-<script src="js/web3.min.js"></script>
-<script src="js/truffle-contract.js"></script>
-<script src="js/donated.js"></script>
-</body>
+        <script src="js/web3.min.js"></script>
+        <script src="js/truffle-contract.js"></script>
+        <script src="js/donated.js"></script>
+    </body>
 </html>

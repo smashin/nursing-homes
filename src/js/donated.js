@@ -44,11 +44,12 @@ window.App = {
         App.contracts.NursingHomeDonates
             .deployed()
             .then(function (instance) {
+                var dealsInstance = instance;
                 var event = instance.Donated({});
                 // watch for changes
                 event.watch(function (error, result) {
                     if (!error) {
-                        console.log(result);
+                        console.log(error, result);
                         var amount = result.args.amount.toNumber().toLocaleString('ru-RU');
                         var donator = result.args.donator;
                         var tx = result.transactionHash;
